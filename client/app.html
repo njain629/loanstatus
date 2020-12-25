@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Application Status</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <!--  <script src="app.js"></script>
+	<link rel="stylesheet" href="app.css"> --> <!-- For running locally -->
+    <script src="{{ url_for('static',filename='app.js') }}"></script>
+	<link rel="stylesheet"  href= "{{ url_for('static',filename='app.css') }}"> <!-- For integrating Flask and HTML -->
+</head>
+<body>
+<form class="form">
+	<h2>Loan amount</h2>
+	<input class="area"  type="number" id="uiLoanAmt" class="floatLabel">
+	<h2>Applicant Income</h2>
+	<input class="area"  type="number" id="uiAppInc" class="floatLabel">
+	<h2>CoApplicant Income</h2>
+	<input class="area"  type="number" id="uiCoAppInc" class="floatLabel">
+	<h2>Loan Amount Term</h2>
+    <input class="area"  type="number" id="uiLoanAmtTrm" class="floatLabel">
+	<h2>Relationship Status</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-relsts-0" name="uiRel" value="0"/>
+		<label for="radio-relsts-0">Single</label>
+		<input type="radio" id="radio-relsts-1" name="uiRel" value="1" checked/>
+		<label for="radio-relsts-1">Married</label>
+	</div>
+	<h2>Credit History</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-credhist-0" name="uiCred" value="0"/>
+		<label for="radio-credhist-0">Not Paid All debts</label>
+		<input type="radio" id="radio-credhist-1" name="uiCred" value="1" checked/>
+		<label for="radio-credhist-1">Paid All debts</label>
+	</div>
+	<h2>No of Dependents of applicant</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-dep-0" name="uiDep" value="0"/>
+		<label for="radio-dep-0">0</label>
+		<input type="radio" id="radio-dep-1" name="uiDep" value="1" checked/>
+		<label for="radio-dep-1">1+</label>
+	</div>
+	<h2>Property_Area</h2>
+	<div class="switch-field">
+		<input type="radio" id="radio-prop_area-0" name="uiPropArea" value="0"/>
+		<label for="radio-prop_area-0">Urban/Semi-urban</label>
+		<input type="radio" id="radio-prop_area-1" name="uiPropArea" value="1" checked/>
+		<label for="radio-prop_area-1">Rural</label>
+	</div>
+	<button class="submit" onclick="onClickedPredictStatus()" type="button">Predict Status</button>
+	<div id="uiloanAppStatus" class="result">	<h2></h2> </div>
+</form>
+</body>
+</html>
