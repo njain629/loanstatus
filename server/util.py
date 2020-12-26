@@ -20,8 +20,6 @@ def get_loanAplication_status(Married,ApplicantIncome,CoapplicantIncome,LoanAmou
     return "Approved" if __model.predict([x])==1  else "Rejected"
 
 def load_saved_artifacts():
-    print("loading saved artifacts...start")
-
     path = os.path.dirname(__file__) 
     artifacts = os.path.join(path, "artifacts"),
 
@@ -29,6 +27,5 @@ def load_saved_artifacts():
     if __model is None:
         with open(artifacts[0]+"/pickle_loanData_model.pickle", 'rb') as f:
             __model = pickle.load(f)
-    print("loading saved artifacts...done")
 
 load_saved_artifacts()
